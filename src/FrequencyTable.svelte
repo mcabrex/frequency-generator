@@ -1,7 +1,6 @@
 <script>
 </script>
 
-
 <div class="table-container">
 	<table class="frequency-table">
 		<thead>
@@ -16,7 +15,6 @@
 		</tbody>
 	</table>
 </div>
-
 
 <style>
 	.table-container {
@@ -50,8 +48,5 @@
 	.frequency-table :global(tr) :global(td) {
     	padding: 12px 15px;
 		text-align: left;
-	}
-	.frequency-table-title {
-		margin: 0 0 0.25em;
 	}
 </style>
