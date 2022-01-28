@@ -44,7 +44,7 @@
 	
 	let noteRows = musicalAlphabet.flatMap((letter,ind,arr) => {
 		if(letter === 'E' || letter === 'B') return letter === 'E' ? 'E' : 'B';
-		return [letter,`${letter}♭/${arr[ind+1 % arr.length]}♯`]
+		return [letter,`${letter}♯/${arr[ind+1 % arr.length]}♭`]
 	});
 	let tableOctaves = [0,1,2,3,4,5,6,7,8];
 	let currentOctave = 0;
@@ -71,6 +71,7 @@
 
 {#if currentView === "Generator"}
 	<p>Plug in note information below to generate its sound frequency in hertz (Hz)</p>
+	<p>**Note: the 'Alter' input field is used to describe the chromatic alteration of a note in semitones (e.g., -1 for flat, 1 for sharp)</p>
 	<NoteInput frequency={noteFrequency}>
 		<legend slot="legend" class="input-legend">
 			Note 1
@@ -89,7 +90,7 @@
 		<input type=number bind:value={alter} name="alter" slot="alter" class="input-field"/>
 	</NoteInput>
 {:else}
-	<p>Pick an octave below to generate all the frequencies of the octave in hertz (Hz)</p>
+	<p>Pick an octave below to display all the frequencies of the octave in hertz (Hz)</p>
 	<h3 class="table-octaves">Octaves:
 	{#each tableOctaves as tableOctave}
 		<button 
@@ -129,6 +130,7 @@
 	}
 	.button-general {
 		border-style: none;
+		background-color: white;
 	}
 	.button-general:hover {
 		color: rgb(209, 14, 14);
