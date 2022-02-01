@@ -2,7 +2,9 @@
    export let frequency
 </script>
 
-<h2 class="frequency">Note Frequency = {frequency}Hz</h2>
+<slot name="title">
+   <h2 class="frequency">Note Frequency = {frequency}Hz</h2>
+</slot>
 <fieldset class="note-inputs">
 
    <slot name="legend">
