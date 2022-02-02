@@ -11,6 +11,13 @@
       <legend class="input-legend">Note Inputs</legend>
    </slot>
    
+   {#if $$slots.frequency}
+   <label for="frequency" class="input-title">
+      Frequency
+   </label>
+   <slot name="frequency" class="input-frequency"></slot>
+   {/if}
+
    <label for="octave" class="input-title">
       Octave
    </label>
@@ -37,7 +44,6 @@
      width: fit-content;
       height: fit-content;
       grid-template-columns: [label] 30% [input] 70%;
-      grid-template-rows: [octave] 33% [letter] 33% [alter] 33%;
       display: grid;
   }
 	.input-title {

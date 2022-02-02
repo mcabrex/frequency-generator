@@ -136,19 +136,22 @@
 	</FrequencyTable>
 
 {:else if currentView === "Tuning"}
+	<p>The frequencies used in this app are decided by the Equal Tempered Scale</p>
 	<p>Plug in note information below to choose the tuning for the note frequencies used in this app</p>
 	<p>The 'Alter' input field is used to describe the chromatic alteration of a note in semitones (e.g., -1 for flat, 1 for sharp)</p>
-	<p>**Note: By default this program is set to the tuning of A4 at frequency 440Hz, this is the standard tuning used to calibrate acoustic equipment and tune musical instruments</p>
+	<p>**Note: By default this program is set to the tuning of A4 at frequency 440Hz, this is a standard tuning used to calibrate acoustic equipment and tune musical instruments</p>
 
 	<NoteInput frequency={noteFrequency}>
 		`${'x'+fixedAlt}` : `${'x'+Math.abs(fixedAlt)}`
 		<h2 slot="title">Tuning: 
-			{fixedLet}<sub>{fixedOct}</sub>{#if fixedAlt > 0}{'♯'}{#if fixedAlt > 1}<sub>{fixedAlt}</sub>{/if}{:else if fixedAlt < 0}♭{#if fixedAlt < -1}<sub>{Math.abs(fixedAlt)}</sub>{/if}{/if}{fixedFreq}
+			{fixedLet}<sub>{fixedOct}</sub>{#if fixedAlt > 0}{'♯'}{#if fixedAlt > 1}<sub>{fixedAlt}</sub>{/if}{:else if fixedAlt < 0}♭{#if fixedAlt < -1}<sub>{Math.abs(fixedAlt)}</sub>{/if}{/if}{fixedFreq}Hz
 		</h2>
 
 		<legend slot="legend" class="input-legend">
 			Tuning
 		</legend>
+
+		<input type=number bind:value={fixedFreq} min=0 name="frequency" slot="frequency" class="input-field"/>
 
 		<input type=number bind:value={fixedOct} min=0 name="octave" slot="octave" class="input-field"/>
 
